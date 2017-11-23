@@ -1,3 +1,7 @@
+.hide {
+	display: none;
+}
+
 html, body {
 	margin: 0;
 	height: 100vh;
@@ -36,10 +40,11 @@ nav {
 	width: 100vw;
 	border-bottom: 1px solid white;
 	z-index: 2;
+	color: white;
 }
 
 #brand {
-	color: red;
+	color: red !important;
 	font-weight: 600;
 	font-size: 32px
 }
@@ -49,6 +54,13 @@ nav {
 	color: #810000 !important;
 }
 
-#first {
+.box {
 	opacity: 1 !important;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }

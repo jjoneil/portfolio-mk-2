@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>John O'Neil</title>
-	<script src="https://unpkg.com/vue"></script>
-	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>John O'Neil</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg">
-		  <a class="navbar-brand" id="brand" href="#">J O H N  O ' N E I L</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
+  <div id="app">
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">It me</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">what I got</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">reach out</a>
-		      </li>
-		    </ul>	    
-		  </div>
-	</nav>
+      <nav class="navbar navbar-expand-lg fixed-top">
+            <a class="navbar-brand" id="brand" href="/">J O H N  O ' N E I L</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-	<!-- end nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/resume">resume</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/projects">projects</router-link>
+                </li>
+              </ul>
+            </div>
+      </nav>
 
-	<div id="app">
+    <!-- end nav -->
 
-		<div class="box" id="first">
-			<div class="box-wrapper">
-				<!-- <content></content> -->
-			</div>
-		</div> <!-- end box -->
 
-		<div class="box">
-			<div class="box-wrapper">
-				<!-- <content></content> -->
-			</div>
-		</div> <!-- end box -->
+      <router-view></router-view>
+    </div> <!-- end app -->
 
-		<div class="box">
-			<div class="box-wrapper">
-				<!-- <content></content> -->
-			</div>
-		</div> <!-- end box -->
-
-		<div class="box">
-			<div class="box-wrapper">
-				<!-- <content></content> -->
-			</div>
-		</div> <!-- end box -->
-
-		<div class="box">
-			<div class="box-wrapper">
-				<!-- <content></content> -->
-			</div>
-		</div> <!-- end box -->
-
-	</div> <!-- end app -->
-
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="app.js"></script>
 </body>
 </html>

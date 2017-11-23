@@ -1,25 +1,67 @@
-$('document').ready(function(){
-  $('nav').hide().fadeIn(1000);
-  $('#app').hide().fadeIn(2500);
+// - - - - - -  creating transitions - - - - //
+//https://vuejs.org/v2/guide/transitions.html//
+// - - - - - - - - - - - - - - - - - - - - - //
 
+var myRouter = new VueRouter ({
+  routes: [
+    {
+      path: '/',
+      component: (resolve, reject)=>{
+        mainVm.show = false;
+        $.get('/partials/about.html', (htmlFromServer)=>{
+          var newComponent = {
+            template: htmlFromServer,
+            created: ()=>{
+              mainVm.show = true;
+              console.log('created the projects component')
+            },
+            destroyed: function(){ console.log('destroyed the about component')}
+          }
+          resolve(newComponent)
+        })
+      }
+    },
+    {
+      path: '/resume',
+      component: (resolve, reject)=>{
+        mainVm.show = false;
+        $.get('/partials/resume.html', (htmlFromServer)=>{
+          var newComponent = {
+            template: htmlFromServer,
+            created: ()=>{
+              mainVm.show = true;
+              console.log('created the projects component')
+            },
+            destroyed: function(){ console.log('destroyed the resume component')}
+          }
+          resolve(newComponent)
+        })
+      }
+    },
+    {
+      path: '/projects',
+      component: (resolve, reject)=>{
+        mainVm.show = false;
+        $.get('/partials/projects.html', (htmlFromServer)=>{
+          var newComponent = {
+            template: htmlFromServer,
+            created: ()=>{
+              mainVm.show = true;
+              console.log('created the projects component')
+            },
+            destroyed: function(){ console.log('destroyed the projects component')}
+          }
+          resolve(newComponent)
+        })
+      }
+    }
+  ]
+})
 
-  $('body').scroll( function(){
-    
-        /* Check the location of each desired element */
-        $('.box').each( function(i){
-            
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            /* If the object is completely visible in the window, fade it it */
-            if( bottom_of_window > bottom_of_object ){
-                
-                $(this).animate({'opacity':'1'},1500);
-                    
-            }
-            
-        }); 
-
-    });
-});
-
+var mainVm = new Vue({
+  el: '#app',
+  router: myRouter,
+  data: {
+    show: true
+  }
+})
