@@ -33,8 +33,10 @@
 
     <!-- end nav -->
 
+    <transition name="fade">
+        <router-view v-if="show"></router-view>
+    </transition>
 
-      <router-view></router-view>
     </div> <!-- end app -->
 
 <script

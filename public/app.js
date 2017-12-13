@@ -7,12 +7,10 @@ var myRouter = new VueRouter ({
     {
       path: '/',
       component: (resolve, reject)=>{
-        mainVm.show = false;
         $.get('/partials/about.html', (htmlFromServer)=>{
           var newComponent = {
             template: htmlFromServer,
             created: ()=>{
-              mainVm.show = true;
               console.log('created the projects component')
             },
             destroyed: function(){ console.log('destroyed the about component')}
@@ -24,12 +22,10 @@ var myRouter = new VueRouter ({
     {
       path: '/resume',
       component: (resolve, reject)=>{
-        mainVm.show = false;
         $.get('/partials/resume.html', (htmlFromServer)=>{
           var newComponent = {
             template: htmlFromServer,
             created: ()=>{
-              mainVm.show = true;
               console.log('created the projects component')
             },
             destroyed: function(){ console.log('destroyed the resume component')}
@@ -41,12 +37,10 @@ var myRouter = new VueRouter ({
     {
       path: '/projects',
       component: (resolve, reject)=>{
-        mainVm.show = false;
         $.get('/partials/projects.html', (htmlFromServer)=>{
           var newComponent = {
             template: htmlFromServer,
             created: ()=>{
-              mainVm.show = true;
               console.log('created the projects component')
             },
             destroyed: function(){ console.log('destroyed the projects component')}
@@ -61,7 +55,10 @@ var myRouter = new VueRouter ({
 var mainVm = new Vue({
   el: '#app',
   router: myRouter,
+  created: function(){
+    setTimeout(()=>{this.show = true}, 500)
+  },
   data: {
-    show: true
+    show: false
   }
 })
